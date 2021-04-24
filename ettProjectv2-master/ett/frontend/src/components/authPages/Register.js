@@ -128,8 +128,7 @@ const Register = ({
 
   return (
     <Fragment>
-      {job.jobs.length > 0 && role.roles.length > 0 ? (
-        <Fragment>
+      <Fragment>
           <div className='container'>
             <div className='img-wrapper'>
               <img src={background_calendar} alt='background calendar' />
@@ -165,7 +164,7 @@ const Register = ({
                       }}
                     >
                       <option>-</option>
-                      {role.roles.map((r) => (
+                      {role.roles.length > 0 && role.roles.map((r) => (
                         <option key={r._id} value={r.title}>
                           {r.title}
                         </option>
@@ -200,7 +199,7 @@ const Register = ({
                       }}
                     >
                       <option>-</option>
-                      {job.jobs.map((j) => (
+                      {job.jobs.length > 0 && job.jobs.map((j) => (
                         <option key={j._id} value={j.title}>
                           {j.title}
                         </option>
@@ -311,11 +310,6 @@ const Register = ({
           <div className='overlay'></div>
           <footer className='landing-footer'>&copy; 2020 Team DJK</footer>
         </Fragment>
-      ) : (
-        <Fragment>
-          <Loading />
-        </Fragment>
-      )}
     </Fragment>
   );
 };

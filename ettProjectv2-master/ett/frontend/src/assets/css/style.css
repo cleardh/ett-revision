@@ -871,13 +871,15 @@ legend {
   z-index: 2;
 }
 
-.date:hover {
+.date:not(.no-hover):hover {
   color: #fff;
+  transition: 0.7s;
 }
 
-.date:hover + .overlay-circle {
+.date:not(.no-hover):hover + .overlay-circle {
   border-color: #325d88;
   background: #325d88;
+  transition: 0.7s;
 }
 
 .all-day-fieldset {

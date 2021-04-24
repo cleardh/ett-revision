@@ -311,19 +311,21 @@ export default class Calendar extends React.Component {
         return styles;
       });
 
+      const isFuture = parseInt(this.year()) > this.state.today.year() || (parseInt(this.year()) === this.state.today.year() && this.state.dateObject.isAfter(this.state.today, 'month')) || (parseInt(this.year()) === this.state.today.year() && this.state.dateObject.isSame(this.state.today, 'month') && d >= this.state.today.date());
       daysInMonth.push(
         <Fragment key={d}>
           <td
             className='calendar-day'
             onClick={(e) => {
-              this.onDayClick(e, d);
+              isFuture && this.onDayClick(e, d);
             }}
+            style={{ cursor: isFuture ? 'pointer' : 'not-allowed' }}
           >
-            <div className='date' data-tip data-for={`tooltip${d}`}>
+            <div className={isFuture ? 'date' : 'date no-hover'} data-tip data-for={`tooltip${d}`}>
               {d}
             </div>
             <div
-              className={`overlay-circle ${currentDay}`}
+              className={isFuture ? `overlay-circle ${currentDay}`: ''}
               style={styles}
             ></div>
 
