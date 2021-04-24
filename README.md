@@ -1,4 +1,3 @@
-# ![logo](./frontend/src/assets/img/logo.png)
 <h1>Employee Time-off Tracker</h1>
 
 <h3>This is a small web application that will allow employees to register
